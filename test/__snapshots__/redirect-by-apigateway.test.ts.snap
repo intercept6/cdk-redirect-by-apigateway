@@ -26,64 +26,14 @@ Object {
       },
     },
   },
-  "Parameters": Object {
-    "AssetParameters63e74b6f9eff6a3d5e8f4bc3a8dd894e55bb5b2e8408e35e1f6b139cd44b769eArtifactHash544698B1": Object {
-      "Description": "Artifact hash for asset \\"63e74b6f9eff6a3d5e8f4bc3a8dd894e55bb5b2e8408e35e1f6b139cd44b769e\\"",
-      "Type": "String",
-    },
-    "AssetParameters63e74b6f9eff6a3d5e8f4bc3a8dd894e55bb5b2e8408e35e1f6b139cd44b769eS3Bucket745131F7": Object {
-      "Description": "S3 bucket for asset \\"63e74b6f9eff6a3d5e8f4bc3a8dd894e55bb5b2e8408e35e1f6b139cd44b769e\\"",
-      "Type": "String",
-    },
-    "AssetParameters63e74b6f9eff6a3d5e8f4bc3a8dd894e55bb5b2e8408e35e1f6b139cd44b769eS3VersionKey7D0C2ECC": Object {
-      "Description": "S3 key for asset version \\"63e74b6f9eff6a3d5e8f4bc3a8dd894e55bb5b2e8408e35e1f6b139cd44b769e\\"",
-      "Type": "String",
-    },
-  },
+  "Parameters": Object {},
   "Resources": Object {
     "handlerE1533BD5": Object {
       "DependsOn": Array [
         "handlerServiceRole187D5A5A",
       ],
       "Properties": Object {
-        "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParameters63e74b6f9eff6a3d5e8f4bc3a8dd894e55bb5b2e8408e35e1f6b139cd44b769eS3Bucket745131F7",
-          },
-          "S3Key": Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters63e74b6f9eff6a3d5e8f4bc3a8dd894e55bb5b2e8408e35e1f6b139cd44b769eS3VersionKey7D0C2ECC",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters63e74b6f9eff6a3d5e8f4bc3a8dd894e55bb5b2e8408e35e1f6b139cd44b769eS3VersionKey7D0C2ECC",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            ],
-          },
-        },
+        "Code": Object {},
         "Environment": Object {
           "Variables": Object {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",

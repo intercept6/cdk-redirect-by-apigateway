@@ -9,5 +9,14 @@ test('snapshot test', () => {
     'test-stack',
     {redirectURL: 'https://example.com'}
   );
-  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+  const template = SynthUtils.toCloudFormation(stack);
+  template.Parameters = {};
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Object.values(template.Resources).forEach((resource: any) => {
+    if (resource?.Properties?.Code) {
+      resource.Properties.Code = {};
+    }
+  });
+  expect(template).toMatchSnapshot();
 });
