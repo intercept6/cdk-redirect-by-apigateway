@@ -1,13 +1,13 @@
-import { expect as expectCDK, matchTemplate, MatchStyle } from '@aws-cdk/assert';
+import {SynthUtils} from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
-import * as RedirectByApigateway from '../lib/redirect-by-apigateway-stack';
+import * as RedirectByApigateway from '../lib/cdk-redirect-by-apigateway-stack';
 
-test('Empty Stack', () => {
-    const app = new cdk.App();
-    // WHEN
-    const stack = new RedirectByApigateway.RedirectByApigatewayStack(app, 'MyTestStack');
-    // THEN
-    expectCDK(stack).to(matchTemplate({
-      "Resources": {}
-    }, MatchStyle.EXACT))
+test('snapshot test', () => {
+  const app = new cdk.App();
+  const stack = new RedirectByApigateway.CdkRedirectByApigatewayStack(
+    app,
+    'test-stack',
+    {redirectURL: 'https://example.com'}
+  );
+  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
 });

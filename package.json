@@ -1,24 +1,20 @@
 {
-  "name": "redirect-by-apigateway",
+  "name": "cdk-redirect-by-apigateway",
   "version": "0.1.0",
-  "bin": {
-    "redirect-by-apigateway": "bin/redirect-by-apigateway.js"
-  },
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
     "lint": "gts lint",
     "clean": "gts clean",
-    "compile": "tsc",
     "fix": "gts fix",
-    "prepare": "npm run compile",
-    "pretest": "npm run compile",
     "posttest": "npm run lint"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.100.0",
+    "@aws-cdk/aws-apigatewayv2": "^1.100.0",
+    "@aws-cdk/aws-apigatewayv2-integrations": "^1.100.0",
+    "@aws-cdk/aws-lambda-nodejs": "^1.100.0",
+    "@types/aws-lambda": "^8.10.76",
     "@types/jest": "^26.0.10",
     "@types/node": "^14.11.2",
     "aws-cdk": "1.100.0",

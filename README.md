@@ -1,14 +1,13 @@
-# Welcome to your CDK TypeScript project!
+# AWS API Gateway v2(HTTP API)と AWS Lambda を使ったリダイレクトサーバー
 
-This is a blank project for TypeScript development with CDK.
+## 概要
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+API Gateway と Lambda を使ったサーバーレス構成で安価なリダイレクトサーバーを作成する AWS CDK のコードです。
+環境変数`REDIRECT_URL`に設定された URL に対してリダイレクトを行います。
 
-## Useful commands
+## デプロイ
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+```bash
+npm install -g aws-cdk
+REDIRECT_URL=https://example.com  cdk deploy
+```
