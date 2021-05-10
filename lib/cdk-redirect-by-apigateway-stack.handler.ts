@@ -7,7 +7,7 @@ if (redirectURL === undefined) {
 
 export const handler: APIGatewayProxyHandlerV2 = async () => {
   return {
-    statusCode: 302,
+    statusCode: 301,
     headers: {
       Location: redirectURL,
     },
